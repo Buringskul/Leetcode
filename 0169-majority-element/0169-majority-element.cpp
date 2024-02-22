@@ -1,7 +1,7 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        map<int, int> freq;
+        unordered_map<int, int> freq;
         int answer;
 
         for (auto i : nums) {
