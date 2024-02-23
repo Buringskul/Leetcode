@@ -2,7 +2,6 @@ class Solution {
 public:
     char repeatedCharacter(string s) {
         unordered_map<char, int> freq;
-        char answer;
         
         for (auto i : s) {
             freq[i]++;
@@ -10,6 +9,6 @@ public:
                 return i;
             }
         }
-        return answer;
+        return '0';
     }
 };
