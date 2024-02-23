@@ -4,9 +4,9 @@ public:
         unordered_set<string> startCity;
         unordered_set<string> endCity;
         
-        for (int i = 0; i < paths.size(); i++) {
-             startCity.insert(paths[i][0]);
-             endCity.insert(paths[i][1]);
+        for (auto i : paths) {
+             startCity.insert(i[0]);
+             endCity.insert(i[1]);
         }
         
         for (auto i : endCity) {
