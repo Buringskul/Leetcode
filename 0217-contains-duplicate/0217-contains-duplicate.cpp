@@ -1,9 +1,11 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        for (int i = nums.size() - 1; i > 0; i--) { 
-            if (nums[i - 1] == nums[i]) {
+        unordered_map<int, int> freq;
+        
+        for (auto i : nums) {
+            freq[i]++;
+            if (freq[i] >= 2) {
                 return true;
             }
         }
