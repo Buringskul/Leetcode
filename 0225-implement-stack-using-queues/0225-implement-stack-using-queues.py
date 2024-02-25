@@ -1,17 +1,16 @@
 class MyStack:
 
     def __init__(self):
-        self.queue = []
+        self.queue = collections.deque()
 
     def push(self, x: int) -> None:
-        self.queue.append(x)
-            
+        self.queue.appendleft(x)
 
     def pop(self) -> int:
-        return self.queue.pop()
+        return self.queue.popleft()
 
     def top(self) -> int:
-        return self.queue[-1]
+        return self.queue[0]
 
     def empty(self) -> bool:
         return not self.queue
