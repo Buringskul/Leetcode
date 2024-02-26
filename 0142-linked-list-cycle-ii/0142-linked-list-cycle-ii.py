@@ -17,14 +17,14 @@ class Solution:
             slow = slow.next
             
             if fast == slow:
-                slow = head
-                
-                while slow != fast:
-                    slow = slow.next
-                    fast = fast.next
-                    
-                return slow
+                break
+        else:
+            return None
         
-        return None
+        slow = head
                 
-    
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow  
