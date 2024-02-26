@@ -8,13 +8,10 @@ class Solution:
         if head == None:
             return head
         
-        while head and head.val == val:
-            head = head.next
-        
-        if head == None:
-            return head
+        dummy = ListNode(0)
+        dummy.next = head
             
-        curr = head
+        curr = dummy
         
         while curr and curr.next:
             if curr.next.val == val:
@@ -22,4 +19,4 @@ class Solution:
             else:
                 curr = curr.next
                 
-        return head
+        return dummy.next
