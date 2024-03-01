@@ -8,24 +8,18 @@ class Solution:
         if head is None or head.next is None:
             return None
         
-        curr = head
-        count = 0
+        temp = ListNode(val=0, next = head)
+        first = temp
+        second = temp
         
-        while curr:
-            count += 1
-            curr = curr.next
+        for i in range(n + 1):
+            first = first.next
         
-        if n >= count:
-            return head.next
+        while first:
+            first = first.next
+            second = second.next
         
-        nth = count - n - 1
-        curr = head
-        
-        while nth > 0:
-            curr = curr.next
-            nth -= 1
-        
-        curr.next = curr.next.next
-        return head
+        second.next = second.next.next
+        return temp.next
         
         
