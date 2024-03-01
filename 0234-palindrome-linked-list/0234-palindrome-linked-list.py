@@ -9,10 +9,10 @@ class Solution:
             return True
         
         curr = head
-        num = ""
+        num = []
 
         while curr:
-            num += str(curr.val)
+            num.append(curr.val)
             curr = curr.next
         
         return num == num[::-1]
