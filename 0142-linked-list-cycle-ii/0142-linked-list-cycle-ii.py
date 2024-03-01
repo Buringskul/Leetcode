@@ -9,15 +9,20 @@ class Solution:
         if head == None or head.next == None:
             return None
         
-        address = set()
-        curr = head
-        while curr:
-            if id(curr) not in address:
-                address.add(id(curr))
+        slow = head
+        fast = head
+        
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            
+            if fast == slow:
+                slow = head
                 
-            else:
-                return curr
-            
-            curr = curr.next
-            
-        return None
+                while slow != fast:
+                    slow = slow.next
+                    fast = fast.next
+                    
+                return slow
+        
+        return None 
