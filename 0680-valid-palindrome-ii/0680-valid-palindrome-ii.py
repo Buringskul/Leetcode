@@ -1,13 +1,19 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        left = 0
-        right = len(s) - 1
-    
-        while left < right:
-            if s[left] != s[right]:
-                return s[left:right] == s[left:right][::-1] or s[left+1:right+1] == s[left+1:right+1][::-1]
-            
-            left += 1
-            right -= 1
+        
+        def isPalindrome(skip, left, right):
+            if skip > 1:
+                return False
 
-        return True
+            while left < right:
+                if s[left] == s[right]:
+                    left += 1
+                    right -= 1
+                else:
+                    return isPalindrome(skip+1, left+1, right) or isPalindrome(skip+1, left, right-1)
+            
+            return True
+                
+        return isPalindrome(0, 0, len(s)-1)
+    
+    
