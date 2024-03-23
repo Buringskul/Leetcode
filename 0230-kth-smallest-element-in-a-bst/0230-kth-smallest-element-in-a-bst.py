@@ -8,7 +8,6 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         arr = []
         self.inorder(root, arr)
-        arr.sort()
         return arr[k-1]
     
     
