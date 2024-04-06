@@ -8,15 +8,15 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         
         def build(preorder, inorder):
-            if not preorder: 
+            if not inorder: 
                 return None
             
-            curr_val = preorder[0]
+            curr_val = preorder.pop(0)
             node = TreeNode(curr_val)
             index = inorder.index(curr_val)
             
-            node.left = build(preorder[1:index + 1], inorder[:index])
-            node.right = build(preorder[index + 1:], inorder[index + 1:])
+            node.left = build(preorder, inorder[:index])
+            node.right = build(preorder, inorder[index + 1:])
             
             return node
         
